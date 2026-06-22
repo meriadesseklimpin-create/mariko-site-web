@@ -17,31 +17,19 @@
     </style>
 </head>
 
-<frameset rows="20%,70%,10%" border="3" frameborder="1">
+<frameset rows="20%,70%,10%" border="3">
     
-    <!-- En-tête -->
-    <frameset cols="20%,60%,20%" frameborder="1">
-        <frame src="uaclogo.html" scrolling="no" noresize>
-        <frame src="bienvenue.html" scrolling="no" noresize>
-        <frame src="eneam.html" scrolling="no" noresize>
-    </frameset>
-    
-    <!-- Partie centrale -->
-    <frameset cols="20%,80%" frameborder="1">
-        <frame src="menu.html" scrolling="auto" noresize>
-        <frame src="accueil.html" name="mariko" scrolling="auto">
-    </frameset>
-    
-    <!-- Pied de page -->
-    <frame src="footer.html" scrolling="no" noresize>
-    
-</frameset>
+    <!-- En-tête - Une seule colonne -->
+    <frame src="bienvenue.html" scrolling="no">
 
-<!-- Fallback pour les navigateurs ne supportant pas les frames -->
-<noframes>
-    <body>
-        <p>Votre navigateur ne supporte pas les frames.</p>
-        <p>Visitez notre site : <a href="accueil.html">Accueil</a></p>
-    </body>
-</noframes>
+    <!-- Partie centrale -->
+    <frameset cols="20%,80%">
+        <frame src="menu.html"/>
+        <frame src="accueil.html" name="mariko"/>
+    </frameset>
+
+    <!-- Pied de page -->
+    <frame src="footer.html" scrolling="no">
+
+</frameset>
 </html>
