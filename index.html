@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Site UAC - ENEAM</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-}
-
-frame{
-    border:2px solid #003366;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <title>Site UAC - ENEAM</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        frameset {
+            border: 2px solid #003366;
+        }
+        frame {
+            border: 1px solid #003366;
+        }
+    </style>
 </head>
 
-<frameset rows="20%,70%,10%" border="3">
-
+<frameset rows="20%,70%,10%" border="3" frameborder="1">
+    
     <!-- En-tête -->
-    <frameset cols="20%,60%,20%">
-        <frame src="uaclogo.html" scrolling="no">
-        <frame src="bienvenue.html" scrolling="no">
-        <frame src="eneam.html" scrolling="no">
+    <frameset cols="20%,60%,20%" frameborder="1">
+        <frame src="uaclogo.html" scrolling="no" noresize>
+        <frame src="bienvenue.html" scrolling="no" noresize>
+        <frame src="eneam.html" scrolling="no" noresize>
     </frameset>
-
+    
     <!-- Partie centrale -->
-    <frameset cols="20%,80%">
-        <frame src="menu.html"/>
-        <frame src="accueil.html" name="mariko"/>
+    <frameset cols="20%,80%" frameborder="1">
+        <frame src="menu.html" scrolling="auto" noresize>
+        <frame src="accueil.html" name="mariko" scrolling="auto">
     </frameset>
-
+    
     <!-- Pied de page -->
-    <frame src="footer.html" scrolling="no">
-
+    <frame src="footer.html" scrolling="no" noresize>
+    
 </frameset>
 
-<iframe name="zone_centrale" src="accueil.html"></iframe>
-
+<!-- Fallback pour les navigateurs ne supportant pas les frames -->
+<noframes>
+    <body>
+        <p>Votre navigateur ne supporte pas les frames.</p>
+        <p>Visitez notre site : <a href="accueil.html">Accueil</a></p>
+    </body>
+</noframes>
 </html>
