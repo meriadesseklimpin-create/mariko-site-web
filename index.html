@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Site UAC - ENEAM</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+}
+
+frame{
+    border:2px solid #003366;
+}
+</style>
+
+</head>
+
+<frameset rows="20%,70%,10%" border="3">
+
+    <!-- En-tête -->
+    <frameset cols="20%,60%,20%">
+        <frame src="uaclogo.html" scrolling="no">
+        <frame src="bienvenue.html" scrolling="no">
+        <frame src="eneam.html" scrolling="no">
+    </frameset>
+
+    <!-- Partie centrale -->
+    <frameset cols="20%,80%">
+        <frame src="menu.html"/>
+        <frame src="Accueill.html" name="mariko"/>
+    </frameset>
+
+    <!-- Pied de page -->
+    <frame src="footer.html" scrolling="no">
+
+</frameset>
+
+<iframe name="zone_centrale" src="accueill.html"></iframe>
+
+</html>
