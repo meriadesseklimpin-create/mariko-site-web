@@ -3,88 +3,391 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>Mon Site Personnel - Mariko</title>
     <style>
-        .navbar{
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Barre de navigation */
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100px;
-            height: 100px;
-            border: 2px solid black;
-            padding: 10px 20px;
-            box-sizing: border-box;
+            background: white;
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+            border: 2px solid #003366;
+            transition: transform 0.3s ease;
         }
-        .navbar{
+
+        .navbar:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .ad, .hh {
             display: flex;
-            width: 100%;
-        }
-        .navbar{
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-        }
-        .title{
-            flex: 1;
-        }
-        .ad .hh{
+            align-items: center;
             justify-content: center;
-            display: flex;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #003366, #0055a5);
+            transition: all 0.3s ease;
+            border: 3px solid #003366;
+            box-shadow: 0 4px 15px rgba(0,51,102,0.3);
+        }
+
+        .ad:hover, .hh:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(0,51,102,0.5);
+            border-color: #ffd700;
+        }
+
+        .ad img, .hh img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .ad img:hover, .hh img:hover {
+            transform: scale(1.05);
+            border-color: #ffd700;
+        }
+
+        .titre {
+            flex: 1;
             text-align: center;
-            width: 120px;
+            padding: 0 20px;
+        }
+
+        .titre p {
+            font-size: 28px;
+            font-weight: bold;
+            color: #003366;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #003366, #0055a5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .titre p br {
+            display: none;
+        }
+
+        .titre p::after {
+            content: " 🌟";
+            -webkit-text-fill-color: initial;
+        }
+
+        /* Contenu principal */
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            border-left: 5px solid #003366;
+            border-right: 5px solid #003366;
+        }
+
+        h1 {
+            color: #003366;
+            font-size: 24px;
+            margin: 25px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #003366;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: " 🎯";
+            font-size: 20px;
+        }
+
+        h1:first-of-type {
+            margin-top: 0;
+        }
+
+        h1:first-of-type::after {
+            content: " 👤";
+        }
+
+        h1:last-of-type::after {
+            content: " 🎮";
+        }
+
+        /* Informations personnelles */
+        .info-personnelles p {
+            font-size: 18px;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #003366;
+            transition: all 0.3s ease;
+        }
+
+        .info-personnelles p:hover {
+            background: #e9ecef;
+            transform: translateX(10px);
+            border-left-color: #ffd700;
+        }
+
+        .info-personnelles em {
+            color: #003366;
+            font-weight: bold;
+            font-style: normal;
+            min-width: 150px;
+            display: inline-block;
+        }
+
+        /* Diplômes */
+        ol {
+            list-style: none;
+            padding: 0;
+            counter-reset: diploma-counter;
+        }
+
+        ol li {
+            font-size: 18px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0055a5;
+            transition: all 0.3s ease;
+            counter-increment: diploma-counter;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        ol li::before {
+            content: counter(diploma-counter);
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #003366;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        ol li:hover {
+            background: #e9ecef;
+            transform: translateX(10px);
+            border-left-color: #ffd700;
+        }
+
+        ol li a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        ol li a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+
+        /* Loisirs */
+        .loisirs {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #003366;
+            margin-top: 10px;
+        }
+
+        .loisirs p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .loisirs p::before {
+            content: "🎵 ";
+            font-size: 20px;
+        }
+
+        .loisirs p::after {
+            content: " 🎵";
+            font-size: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .ad, .hh {
+                width: 70px;
+                height: 70px;
+            }
+
+            .ad img, .hh img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .titre p {
+                font-size: 20px;
+                margin: 10px 0;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .info-personnelles p {
+                font-size: 16px;
+            }
+
+            ol li {
+                font-size: 16px;
+                padding-left: 40px;
+            }
+
+            ol li::before {
+                width: 25px;
+                height: 25px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titre p {
+                font-size: 16px;
+            }
+
+            .ad, .hh {
+                width: 60px;
+                height: 60px;
+            }
+
+            .ad img, .hh img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .content {
+                padding: 15px;
+            }
+        }
+
+        /* Animation d'entrée */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .navbar {
+            animation: fadeInUp 0.6s ease;
         }
     </style>
-    <head>
-        <body>
-           <nav class="navbar">
+</head>
+<body>
+    <!-- Navigation avec logos -->
+    <nav class="navbar">
         <div class="ad">
-            <a href="https://enema.uac.bj/">
-                <img src="miko.jpg" style="width: 80px;" alt="miko">
+            <a href="https://enema.uac.bj/" target="_blank">
+                <img src="miko.jpg" alt="Logo ENEAM">
             </a>
         </div>
 
         <div class="titre">
-            <p>
-                Bienvenue dans mon site web <br/>
-                Mon nom est Mariko
-            </p>
+            <p>✨ Bienvenue dans mon site web ✨<br>
+            <span style="font-size: 16px; color: #0055a5; -webkit-text-fill-color: #0055a5;">Mon nom est Mariko</span></p>
         </div>
 
         <div class="hh">
-            <a href="https://www.uac.bj/">
-                <img src="maka.jpg" style="width: 80px; height: auto;" alt="maka">
+            <a href="https://www.uac.bj/" target="_blank">
+                <img src="maka.jpg" alt="Logo UAC">
             </a>
         </div>
     </nav>
-<h1><b>I-INFORMATIONS PERSONNELLES </b></h1>
 
-<p><b><em>Nom:</em> KLIMPIN </b></p>
-<p><b><em>Prénoms:</em> Mariko Mériadesse Bissou </b></p>
-<p><b><em>Age:</em> 22 ans </b></p>
-<p><b><em>Numéro de téléphone:</em> +229 01 62 79 05 26 </b></p>
+    <!-- Contenu principal -->
+    <div class="content">
+        <!-- Informations personnelles -->
+        <h1>I - INFORMATIONS PERSONNELLES</h1>
+        <div class="info-personnelles">
+            <p><em>Nom :</em> KLIMPIN</p>
+            <p><em>Prénoms :</em> Mariko Mériadesse Bissou</p>
+            <p><em>Âge :</em> 22 ans</p>
+            <p><em>Numéro de téléphone :</em> +229 01 62 79 05 26</p>
+        </div>
 
-<h1><b>II- MES DIPLOMES </b></h1>
+        <!-- Diplômes -->
+        <h1>II - MES DIPLÔMES</h1>
+        <ol>
+            <li>CEP : Juin 2016</li>
+            <li>BEPC : Juillet 2020</li>
+            <li><a href="Tp1.html@ado">BAC : Juillet 2025</a></li>
+        </ol>
 
-<ol>
-    <li>CEP: Juin 2016</li>
-    <li>BEPC: Juillet 2020</li>
-    <li><a href="Tp1.html@ado">BAC: Juillet 2025</a></li>
-</ol>
-
-<h1><b>III- Mes loisirs </b></h1>
-
-<p><em>
-Hey, hey, hey <br/>
-T'entends? Carré<br/>
-T'sais, j'suis en mode quoi gros?<br/>
-Eh, j'suis en mode <br/>
-Dans la zone, j'ai déjà mon bébé<br/>
-Déjà mon bébé<br/>
-Dans la zone, j'ai déjà mon bébé, ah <br/>
-Déjà mon bébé<br/>
-Goutte la paire, j'tiens le truc, maintenant qu'est-ce qu'y a?<br/>
-Kichta plus grosse que ton P.I.B <br/>
-J'ai baigné dans la zone, j'l'ai pas évitée <br/>
-J'pull up, (yeah) j'pull up (yeah) everyday<br/>
+        <!-- Loisirs -->
+        <h1>III - MES LOISIRS</h1>
+        <div class="loisirs">
+            <p>
+                Hey, hey, hey<br/>
+                T'entends ? Carré<br/>
+                T'sais, j'suis en mode quoi gros ?<br/>
+                Eh, j'suis en mode<br/>
+                Dans la zone, j'ai déjà mon bébé<br/>
+                Déjà mon bébé<br/>
+                Dans la zone, j'ai déjà mon bébé, ah<br/>
+                Déjà mon bébé<br/>
+                Goutte la paire, j'tiens le truc, maintenant qu'est-ce qu'y a ?<br/>
+                Kichta plus grosse que ton P.I.B<br/>
+                J'ai baigné dans la zone, j'l'ai pas évitée<br/>
+                J'pull up, (yeah) j'pull up (yeah) everyday
+            </p>
+        </div>
+    </div>
+</body>
+</html>
